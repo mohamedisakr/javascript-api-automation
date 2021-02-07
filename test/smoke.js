@@ -29,6 +29,7 @@ describe("users", () => {
   });
   */
 
+  /*
   it("POST /users", () => {
     request
       .post("users")
@@ -39,6 +40,28 @@ describe("users", () => {
         console.log(res.body);
         // expect(res.status).to.be.eq(201);
         expect(res.body.data).to.deep.include(coti);
+      });
+  });
+  */
+
+  it("PUT /users/:id", () => {
+    const user = {
+      id: 69,
+      name: "coti", //"Ms. Gautami Acharya",
+      email: "coti123@mit.edu", //"acharya_ms_gautami@orn.io",
+      gender: "Female",
+      status: "Active",
+    };
+
+    request
+      .put("users/69")
+      .set("Authorization", `Bearer ${token}`)
+      .send(user)
+      // .expect(200, done)
+      .then((res) => {
+        console.log(res.body);
+        // expect(res.status).to.be.eq(201);
+        expect(res.body.data).to.deep.include(user);
       });
   });
 
