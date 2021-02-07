@@ -15,7 +15,6 @@ const coti = {
 
 //
 describe("users", () => {
-  /*
   it("respond with json containing a list of all users", (done) => {
     request.get(`users?access-token=${token}`).expect(200, done);
   });
@@ -27,22 +26,18 @@ describe("users", () => {
       .expect("Content-Type", /json/)
       .expect(200, done);
   });
-  */
 
-  /*
   it("POST /users", () => {
     request
       .post("users")
       .set("Authorization", `Bearer ${token}`)
       .send(coti)
-      // .expect(200, done)
       .then((res) => {
         console.log(res.body);
         // expect(res.status).to.be.eq(201);
         expect(res.body.data).to.deep.include(coti);
       });
   });
-  */
 
   it("PUT /users/:id", () => {
     const user = {
@@ -57,7 +52,6 @@ describe("users", () => {
       .put("users/69")
       .set("Authorization", `Bearer ${token}`)
       .send(user)
-      // .expect(200, done)
       .then((res) => {
         console.log(res.body);
         // expect(res.status).to.be.eq(201);
@@ -65,37 +59,14 @@ describe("users", () => {
       });
   });
 
-  // it("gets the test endpoint", async (done) => {
-  //   const response = await request.get(`users?access-token=${token}`);
-  //   console.log(`Status code : ${response.status}`);
-  //   expect(response.status).toBe(200);
-  //   done();
-  // });
+  it.only("DELETE /users/:id", () => {
+    request
+      .delete("users/69")
+      .set("Authorization", `Bearer ${token}`)
+      .then((res) => {
+        console.log(res.body);
+        expect(res.status).to.be.eq(204);
+        expect(res.body.data).to.be.eq(null);
+      });
+  });
 });
-
-// it("GET /users", async (done) => {
-//   const response = await request
-//     .get(`users?access-token=${token}`)
-//     .end((err, response) => {
-//       expect(response.status).to.be.eq(200);
-//       expect(response.body.data).to.not.be.empty;done();
-// done()
-//     });
-// });
-//===============
-// it("gets the test endpoint", async (done) => {
-//   // const response = await request.get(`users?access-token=${token}`);
-//   // console.log(`Response : ${response}`);
-//   request.get(`users?access-token=${token}`).end((err, response) => {
-//     expect(response.status).to.be.eq(200);
-//     // expect(response.body.message).toBe("pass!");
-//     done();
-//   });
-// });
-
-// request.get(`users?access-token=${token}`).end((err, res) => {
-//   //   console.log(err);
-//   //   console.log(res.body);
-//   expect(res.body.data).to.be.empty;
-// done();
-// });
