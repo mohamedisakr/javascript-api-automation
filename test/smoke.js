@@ -5,25 +5,41 @@ import "@babel/polyfill";
 const request = suprttest("https://gorest.co.in/public-api/");
 const token =
   "f23c96ab955134d34fb15a05c891320a81c0a6a309c9f481604e380d19bef872";
+let guid = Date.now();
 const coti = {
-  email: "coti@mit.edu",
-  name: "coti",
+  email: `coti${guid}@mit.edu`,
+  name: `coti${guid}`,
   gender: "Female",
   status: "Active",
 };
 
 //
 describe("users", () => {
+  /*
   it("respond with json containing a list of all users", (done) => {
     request.get(`users?access-token=${token}`).expect(200, done);
   });
 
-  it("respond with json containing a single user, GET /user/:id", function (done) {
+  it("respond with json containing a single user, GET /user/:id", (done) => {
     request
       .get(`users/6/?access-token=${token}`)
       .set("Accept", "application/json")
       .expect("Content-Type", /json/)
       .expect(200, done);
+  });
+  */
+
+  it("POST /users", () => {
+    request
+      .post("users")
+      .set("Authorization", `Bearer ${token}`)
+      .send(coti)
+      // .expect(200, done)
+      .then((res) => {
+        console.log(res.body);
+        // expect(res.status).to.be.eq(201);
+        expect(res.body.data).to.deep.include(coti);
+      });
   });
 
   // it("gets the test endpoint", async (done) => {
