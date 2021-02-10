@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="3.2120" tests="4" failures="0">
+  <testsuite name="Root Suite" timestamp="2021-02-10T12:40:15" tests="0" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="Users&apos; Posts" timestamp="2021-02-10T12:40:15" tests="0" file="E:\Projects\javascript-api-automation\test\posts.js" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="POST" timestamp="2021-02-10T12:40:17" tests="2" file="E:\Projects\javascript-api-automation\test\posts.js" time="1.6610" failures="0">
+    <testcase name="Users&apos; Posts POST add new post" time="0.8190" classname="add new post">
+    </testcase>
+    <testcase name="Users&apos; Posts POST get added post" time="0.8420" classname="get added post">
+    </testcase>
+  </testsuite>
+  <testsuite name="Negative tests" timestamp="2021-02-10T12:40:18" tests="2" file="E:\Projects\javascript-api-automation\test\posts.js" time="1.5510" failures="0">
+    <testcase name="Users&apos; Posts Negative tests 401 authentication" time="0.7720" classname="401 authentication">
+    </testcase>
+    <testcase name="Users&apos; Posts Negative tests 422 validation" time="0.7790" classname="422 validation">
+    </testcase>
+  </testsuite>
+</testsuites>

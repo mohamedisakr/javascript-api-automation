@@ -20,8 +20,8 @@ describe.only("Users' Posts", () => {
     it("add new post", async () => {
       const thePost = {
         user_id: userId,
-        title: faker.lorem.sentence(), //"TDD",
-        body: faker.lorem.paragraphs(), //"Why TDD is important",
+        title: faker.lorem.sentence(),
+        body: faker.lorem.paragraphs(),
       };
       // const thePost = { user_id: userId, ...postData };
 
@@ -46,8 +46,8 @@ describe.only("Users' Posts", () => {
     it("401 authentication", async () => {
       const thePost = {
         user_id: userId,
-        title: faker.lorem.sentence(), //"TDD",
-        body: faker.lorem.paragraphs(), //"Why TDD is important",
+        title: faker.lorem.sentence(),
+        body: faker.lorem.paragraphs(),
       };
 
       const res = await request
@@ -61,9 +61,8 @@ describe.only("Users' Posts", () => {
     it("422 validation", async () => {
       const thePost = {
         user_id: userId,
-        title: faker.lorem.sentence(), //"TDD",
-        // body: faker.lorem.paragraphs(), //"Why TDD is important",
-        // body: "Why TDD is important",
+        title: faker.lorem.sentence(),
+        // body: faker.lorem.paragraphs(),
       };
 
       const res = await request
