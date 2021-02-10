@@ -1,13 +1,12 @@
-import suprttest from "supertest";
 import { expect } from "chai";
+import faker from "faker";
 import "@babel/polyfill";
-const request = suprttest("https://gorest.co.in/public-api/");
+import request from "../config/common";
+import { token } from "../config/app-config";
 import { createRandomUser } from "../utils/user";
 // import { thePost as postData } from "../fixtures/data";
-const token =
-  "f23c96ab955134d34fb15a05c891320a81c0a6a309c9f481604e380d19bef872";
 
-describe("Users' Posts", () => {
+describe.only("Users' Posts", () => {
   let postId = 0;
   let userId = 0;
 
@@ -19,8 +18,8 @@ describe("Users' Posts", () => {
     it("add new post", async () => {
       const thePost = {
         user_id: userId,
-        title: "TDD",
-        body: "Why TDD is important",
+        title: faker.lorem.sentence(), //"TDD",
+        body: faker.lorem.paragraphs(), //"Why TDD is important",
       };
       // const thePost = { user_id: userId, ...postData };
 
@@ -40,12 +39,12 @@ describe("Users' Posts", () => {
     });
   });
 
-  describe.only("Negative tests", () => {
+  describe("Negative tests", () => {
     it("401 authentication", async () => {
       const thePost = {
         user_id: userId,
-        title: "TDD",
-        body: "Why TDD is important",
+        title: faker.lorem.sentence(), //"TDD",
+        body: faker.lorem.paragraphs(), //"Why TDD is important",
       };
 
       const res = await request
@@ -59,7 +58,8 @@ describe("Users' Posts", () => {
     it("422 validation", async () => {
       const thePost = {
         user_id: userId,
-        title: "TDD",
+        title: faker.lorem.sentence(), //"TDD",
+        // body: faker.lorem.paragraphs(), //"Why TDD is important",
         // body: "Why TDD is important",
       };
 
