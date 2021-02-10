@@ -4,3 +4,4 @@ screenshots
 allure-report
 allure-results
 .env
+mochawesome-report
