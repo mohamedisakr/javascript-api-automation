@@ -1,10 +1,12 @@
+import dotenv from "dotenv";
+dotenv.config();
 import { expect } from "chai";
 import faker from "faker";
 import "@babel/polyfill";
 import request from "../config/common";
-import { token } from "../config/app-config";
 import { createRandomUser } from "../utils/user";
 // import { thePost } from "../fixtures/data";
+const token = process.env.TOKEN;
 
 describe.only("Users' Posts", () => {
   let postId = 0;

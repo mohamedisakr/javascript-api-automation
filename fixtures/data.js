@@ -1,4 +1,3 @@
-let guid = Date.now();
 import faker from "faker";
 const coti = {
   email: faker.internet.email(), // `coti${guid}@mit.edu`,

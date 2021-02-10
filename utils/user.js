@@ -1,6 +1,7 @@
 import request from "../config/common";
-import { token } from "../config/app-config";
 import { coti } from "../fixtures/data";
+
+const token = process.env.TOKEN;
 
 const createRandomUser = async () => {
   const inserted = await request

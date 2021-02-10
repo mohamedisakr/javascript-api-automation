@@ -1,8 +1,9 @@
 import { expect } from "chai";
 import "@babel/polyfill";
 import request from "../config/common";
-import { token } from "../config/app-config";
 import { coti } from "../fixtures/data";
+
+const token = process.env.TOKEN;
 
 describe("users", () => {
   let userId = 0;
