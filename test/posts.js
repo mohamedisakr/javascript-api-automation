@@ -39,4 +39,36 @@ describe("Users' Posts", () => {
         .expect(200);
     });
   });
+
+  describe.only("Negative tests", () => {
+    it("401 authentication", async () => {
+      const thePost = {
+        user_id: userId,
+        title: "TDD",
+        body: "Why TDD is important",
+      };
+
+      const res = await request
+        .post("posts")
+        // .set("Authorization", `Bearer ${token}`)
+        .send(thePost);
+      postId = res.body.data.id;
+      expect(res.body.code).to.be.eq(401);
+    });
+
+    it("422 validation", async () => {
+      const thePost = {
+        user_id: userId,
+        title: "TDD",
+        // body: "Why TDD is important",
+      };
+
+      const res = await request
+        .post("posts")
+        .set("Authorization", `Bearer ${token}`)
+        .send(thePost);
+      postId = res.body.data.id;
+      expect(res.body.code).to.be.eq(422);
+    });
+  });
 });
