@@ -4,7 +4,7 @@ import "@babel/polyfill";
 import request from "../config/common";
 import { token } from "../config/app-config";
 import { createRandomUser } from "../utils/user";
-// import { thePost as postData } from "../fixtures/data";
+// import { thePost } from "../fixtures/data";
 
 describe.only("Users' Posts", () => {
   let postId = 0;
@@ -28,7 +28,8 @@ describe.only("Users' Posts", () => {
         .set("Authorization", `Bearer ${token}`)
         .send(thePost);
       postId = res.body.data.id;
-      expect(res.body.data).to.deep.include(thePost);
+      // expect(res.body.data).to.deep.include(thePost);
+      expect(res.body.data.id).to.be.eq(postId);
     });
 
     it("get added post", async () => {
