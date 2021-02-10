@@ -18,7 +18,7 @@ const coti = {
 describe("users", () => {
   let userId = 0;
 
-  describe("Post", () => {
+  describe("POST", () => {
     it("add new user", () => {
       request
         .post("users")
